@@ -1,2 +1,3 @@
-# safecheck
-SafeCheck - Sistema de Gestão de Inspeções Ergonômicas
+# SafeCheck
+
+App Stage: Alpha
