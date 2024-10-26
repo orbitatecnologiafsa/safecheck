@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:SafeCheck/elements/navbar.dart';
 
-class Main extends StatefulWidget {
-  const Main({Key? key}) : super(key: key);
+class Main extends StatelessWidget {
+    Main({super.key});
+  
+final user = FirebaseAuth.instance.currentUser!;
 
-  @override
-  MyApp createState() => MyApp();
-}
+  // sign user out method
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
-class MyApp extends State<Main> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -22,6 +25,15 @@ class MyApp extends State<Main> {
       home: Scaffold(
         bottomNavigationBar: const Navbar(),
         resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+        backgroundColor: Colors.grey[900],
+        actions: [
+          IconButton(
+            onPressed: signUserOut,
+            icon: const Icon(Icons.logout),
+          )
+        ],
+      ),
         body: SafeArea(
           child: Stack(
             children: [

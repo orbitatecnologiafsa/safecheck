@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "100121203970",
+    "project_id": "safecheckauth",
+    "storage_bucket": "safecheckauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100121203970:android:472c6786409f00d8e89e1b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_templates"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXS8w8KjL2q3EkQCcq6nUiJjKXHrN5LFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100121203970:android:7ff46616231bfc4be89e1b",
+        "android_client_info": {
+          "package_name": "com.safecheck"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXS8w8KjL2q3EkQCcq6nUiJjKXHrN5LFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

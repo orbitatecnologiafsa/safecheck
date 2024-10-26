@@ -1,0 +1,1 @@
+ /Users/emal0n/Downloads/safecheck/.dart_tool/flutter_build/0a694016181ff08f8bd5810bd4fe1600/native_assets.yaml: 
