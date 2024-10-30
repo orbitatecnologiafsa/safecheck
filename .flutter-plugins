@@ -1,5 +1,11 @@
 # This is a generated file; do not edit or check into version control.
-firebase_auth=/Users/emal0n/.pub-cache/hosted/pub.dev/firebase_auth-5.3.1/
-firebase_auth_web=/Users/emal0n/.pub-cache/hosted/pub.dev/firebase_auth_web-5.13.2/
-firebase_core=/Users/emal0n/.pub-cache/hosted/pub.dev/firebase_core-3.6.0/
-firebase_core_web=/Users/emal0n/.pub-cache/hosted/pub.dev/firebase_core_web-2.18.1/
+cloud_firestore=/home/emal0n/.pub-cache/hosted/pub.dev/cloud_firestore-5.4.4/
+cloud_firestore_web=/home/emal0n/.pub-cache/hosted/pub.dev/cloud_firestore_web-4.3.2/
+firebase_auth=/home/emal0n/.pub-cache/hosted/pub.dev/firebase_auth-5.3.1/
+firebase_auth_web=/home/emal0n/.pub-cache/hosted/pub.dev/firebase_auth_web-5.13.2/
+firebase_core=/home/emal0n/.pub-cache/hosted/pub.dev/firebase_core-3.6.0/
+firebase_core_web=/home/emal0n/.pub-cache/hosted/pub.dev/firebase_core_web-2.18.1/
+google_sign_in=/home/emal0n/.pub-cache/hosted/pub.dev/google_sign_in-6.2.1/
+google_sign_in_android=/home/emal0n/.pub-cache/hosted/pub.dev/google_sign_in_android-6.1.33/
+google_sign_in_ios=/home/emal0n/.pub-cache/hosted/pub.dev/google_sign_in_ios-5.7.8/
+google_sign_in_web=/home/emal0n/.pub-cache/hosted/pub.dev/google_sign_in_web-0.12.4+2/

@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCXS8w8KjL2q3EkQCcq6nUiJjKXHrN5LFE',
-    appId: '1:100121203970:android:7ff46616231bfc4be89e1b',
+    appId: '1:100121203970:android:2be98febce5ab3e1e89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.appspot.com',
@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.appspot.com',
+    iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplates',
   );
 
@@ -72,6 +73,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.appspot.com',
+    iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplates',
   );
 
