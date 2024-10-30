@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.3
-  flutter_launcher_icons: ^0.9.2
+  icons_launcher: ^3.0.0
   fl_chart: ^0.40.2
   google_nav_bar: ^5.0.6
   firebase_core: ^3.6.0
@@ -23,10 +23,13 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
 
-flutter_icons:
-  android: true
-  ios: true
+icons_launcher:
   image_path: "assets/icons/icon.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
 
 flutter:
   uses-material-design: true

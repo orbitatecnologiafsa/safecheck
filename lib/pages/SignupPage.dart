@@ -72,7 +72,7 @@ class _SignUpPage extends State<SignUpPage> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
-                    'assets/images/signup.jpg',
+                    'assets/images/reg.PNG',
                   ),
                 ),
               ),

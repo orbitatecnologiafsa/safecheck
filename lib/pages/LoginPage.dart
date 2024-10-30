@@ -1,9 +1,9 @@
 import 'package:SafeCheck/Services/reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:SafeCheck/pages/home.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:SafeCheck/Services/otp_page.dart';
-import 'CreateProfilePage.dart';
 import 'SignupPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -129,7 +129,7 @@ class _LoginPage extends State<LoginPage> {
 
     if (creation == lastlogin) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const CreateProfilePage();
+        return Main();
       }));
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -155,7 +155,8 @@ class _LoginPage extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
-                    'assets/images/login.jpg',
+                    'assets/images/login.PNG',
+                    scale: 2,
                   ),
                 ),
 

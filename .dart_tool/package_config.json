@@ -140,12 +140,6 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "flutter_launcher_icons",
-      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/flutter_launcher_icons-0.9.3",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "flutter_lints",
       "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/flutter_lints-1.0.4",
       "packageUri": "lib/",
@@ -224,8 +218,14 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "icons_launcher",
+      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/icons_launcher-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "image",
-      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/image-3.3.0",
+      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/image-4.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -338,6 +338,12 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -374,7 +380,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-10-29T23:34:22.232133Z",
+  "generated": "2024-10-30T18:36:53.777350Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///home/emal0n/Downloads/flutter",

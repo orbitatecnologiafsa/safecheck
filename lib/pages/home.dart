@@ -26,7 +26,7 @@ final user = FirebaseAuth.instance.currentUser!;
         bottomNavigationBar: const Navbar(),
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: Colors.white,
         actions: [
           IconButton(
             onPressed: signUserOut,
@@ -35,6 +35,7 @@ final user = FirebaseAuth.instance.currentUser!;
         ],
       ),
         body: SafeArea(
+          
           child: Stack(
             children: [
               Column(
@@ -82,7 +83,7 @@ final user = FirebaseAuth.instance.currentUser!;
                                     borderRadius: const BorderRadius.all(
                                         Radius.circular(30)),
                                     child: Image.asset(
-                                      'assets/images/profile.jpeg',
+                                      'assets/images/profile.png',
                                       width: 110.0,
                                       height: 110.0,
                                       fit: BoxFit.fill,
