@@ -55,7 +55,6 @@ class _SignUpPage extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
@@ -64,15 +63,15 @@ class _SignUpPage extends State<SignUpPage> {
           child: Column(
             children: [
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               // Topmost image
               SizedBox(
-                height: size.height / 3,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: Image.asset(
                     'assets/images/reg.PNG',
+                    scale: 1.4,
                   ),
                 ),
               ),
@@ -88,7 +87,7 @@ class _SignUpPage extends State<SignUpPage> {
                       child: Text(
                         'Registro',
                         style: TextStyle(
-                            fontSize: 40,
+                            fontSize: 25,
                             fontWeight: FontWeight.w700,
                             fontFamily: 'Poppins'),
                       ),

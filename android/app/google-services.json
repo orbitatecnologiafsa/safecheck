@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "100121203970",
     "project_id": "safecheckauth",
-    "storage_bucket": "safecheckauth.appspot.com"
+    "storage_bucket": "safecheckauth.firebasestorage.app"
   },
   "client": [
     {
@@ -13,6 +13,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.safecheck",
+            "certificate_hash": "ff0652bd1a7cf1bcebd00fafea4cb54fac4832d2"
+          }
+        },
         {
           "client_id": "100121203970-0s2rd1nvr8tcdg4aovpekki75kiqaqsg.apps.googleusercontent.com",
           "client_type": 3

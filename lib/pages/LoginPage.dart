@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:SafeCheck/pages/home.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:SafeCheck/Services/otp_page.dart';
+import 'auth_page.dart';
 import 'SignupPage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -133,7 +134,7 @@ class _LoginPage extends State<LoginPage> {
       }));
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const LoginPage();
+        return const AuthPage();
       }));
     }
   }
@@ -144,25 +145,22 @@ class _LoginPage extends State<LoginPage> {
         backgroundColor: Colors.white,
         resizeToAvoidBottomInset: false,
         body: SizedBox(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height,   
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 40,
-                ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 0.5),
                   child: Image.asset(
                     'assets/images/login.PNG',
-                    scale: 2,
+                    scale: 1.5,
                   ),
                 ),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 10),
+                      horizontal: 30.0, vertical: 1),
                   child: Column(
                     children: [
                       // Login Text
@@ -171,7 +169,7 @@ class _LoginPage extends State<LoginPage> {
                         child: Text(
                           'Login',
                           style: TextStyle(
-                              fontSize: 40,
+                              fontSize: 25,
                               fontWeight: FontWeight.w700,
                               fontFamily: 'Poppins'),
                         ),
@@ -250,8 +248,6 @@ class _LoginPage extends State<LoginPage> {
                             ),
                           )),
 
-                      const SizedBox(height: 13),
-
                       // Forgot Password
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -261,7 +257,7 @@ class _LoginPage extends State<LoginPage> {
                             child: const Text(
                               'Esqueceu sua senha?',
                               style: TextStyle(
-                                  fontSize: 17,
+                                  fontSize: 13,
                                   fontWeight: FontWeight.w800,
                                   color: Colors.green),
                             ),
@@ -297,7 +293,7 @@ class _LoginPage extends State<LoginPage> {
                         )),
                       ),
                       // Sized box
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 10),
                       // Divider and OR
                       Stack(
                         children: [
@@ -321,7 +317,7 @@ class _LoginPage extends State<LoginPage> {
                         ],
                       ),
                       // Sized box
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       // Login with google
                       ElevatedButton.icon(
                         onPressed: () {

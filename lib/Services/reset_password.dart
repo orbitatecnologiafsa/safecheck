@@ -9,7 +9,6 @@ class RESETpasswordPage extends StatefulWidget {
 }
 
 class _RESETpassword extends State<RESETpasswordPage> {
-  @override
   var email = TextEditingController();
 
   reset_password() async {
@@ -36,14 +35,14 @@ class _RESETpassword extends State<RESETpasswordPage> {
               SizedBox(
                  
                   child: Image.asset('assets/images/pass.PNG',
-                  scale: 2),),
+                  scale: 1.5),),
               Container(
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   'Esqueceu a\nSenha?',
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 40,
+                      fontSize: 25,
                       fontWeight: FontWeight.w700,
                       color: Colors.black),
                 ),

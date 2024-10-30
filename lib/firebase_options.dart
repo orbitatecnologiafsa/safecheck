@@ -46,7 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     authDomain: 'safecheckauth.firebaseapp.com',
-    storageBucket: 'safecheckauth.appspot.com',
+    storageBucket: 'safecheckauth.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:100121203970:android:2be98febce5ab3e1e89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
-    storageBucket: 'safecheckauth.appspot.com',
+    storageBucket: 'safecheckauth.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -62,7 +62,8 @@ class DefaultFirebaseOptions {
     appId: '1:100121203970:ios:6193c81d05c1e2efe89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
-    storageBucket: 'safecheckauth.appspot.com',
+    storageBucket: 'safecheckauth.firebasestorage.app',
+    androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
     iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplates',
   );
@@ -72,7 +73,8 @@ class DefaultFirebaseOptions {
     appId: '1:100121203970:ios:6193c81d05c1e2efe89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
-    storageBucket: 'safecheckauth.appspot.com',
+    storageBucket: 'safecheckauth.firebasestorage.app',
+    androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
     iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterTemplates',
   );
@@ -83,7 +85,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     authDomain: 'safecheckauth.firebaseapp.com',
-    storageBucket: 'safecheckauth.appspot.com',
+    storageBucket: 'safecheckauth.firebasestorage.app',
   );
 
 }

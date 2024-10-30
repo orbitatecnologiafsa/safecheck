@@ -7,6 +7,12 @@
 
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
+analyzer:
+  errors:
+    avoid_print: ignore
+    file_names: ignore
+    non_constant_identifier_names: ignore
+    prefer_typing_uninitialized_variables: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:
