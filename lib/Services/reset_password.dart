@@ -27,19 +27,17 @@ class _RESETpassword extends State<RESETpasswordPage> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(30.0),
           child: Column(
             children: [
               SizedBox(
-                 
                   child: Image.asset('assets/images/pass.PNG',
                   scale: 1.5),),
               Container(
                 alignment: Alignment.centerLeft,
                 child: const Text(
-                  'Esqueceu a\nSenha?',
+                  'Esqueceu a Senha?',
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 25,
@@ -51,7 +49,7 @@ class _RESETpassword extends State<RESETpasswordPage> {
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   "Não se preocupe! Isso acontece. Por favor insira o endereço associado à sua conta.",
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  style: TextStyle(fontSize: 15, color: Colors.grey),
                 ),
               ),
               const SizedBox(
