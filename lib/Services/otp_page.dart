@@ -44,17 +44,17 @@ class _OTPpage extends State<OTPPage> {
             const SizedBox(
               height: 90,
             ),
-            SizedBox(width: 300, child: Image.asset('assets/images/otp.webp')),
+            SizedBox(width: 400, child: Image.asset('assets/images/otp.png')),
             const SizedBox(height: 40),
             Container(
                 alignment: Alignment.centerLeft,
                 child: const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
-                    'Enter OTP',
+                    'Verificação 2FA',
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 40,
+                        fontSize: 25,
                         fontWeight: FontWeight.w700,
                         color: Colors.black),
                   ),
@@ -64,7 +64,7 @@ class _OTPpage extends State<OTPPage> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
-                    'An 6 digit code has been sent to \n +91 $phoneNumber',
+                    'Digite os 6 números de segurança do telefone $phoneNumber',
                     style: const TextStyle(fontSize: 18, color: Colors.grey),
                   ),
                 )),
