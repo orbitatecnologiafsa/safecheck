@@ -17,6 +17,7 @@ dependencies:
   google_sign_in : ^6.0.2
   cloud_firestore: ^5.4.4
   flutter_otp_text_field: ^1.2.0
+  another_flutter_splash_screen: ^1.2.1
 
 dev_dependencies:
   flutter_test:

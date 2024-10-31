@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:SafeCheck/pages/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,13 +13,21 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp ({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home: FlutterSplashScreen.gif(
+          useImmersiveMode: false,
+          gifPath: 'assets/images/test2.gif',
+          backgroundColor: Colors.white,
+          gifWidth: 1000,
+          gifHeight: 1000,
+          nextScreen: const AuthPage(),
+          duration: const Duration(milliseconds: 3515),
+        ),
     );
   }
 }
