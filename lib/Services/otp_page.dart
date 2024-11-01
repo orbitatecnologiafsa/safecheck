@@ -16,10 +16,10 @@ class OTPPage extends StatefulWidget {
 
 class _OTPpage extends State<OTPPage> {
   first_login() async {
-    DateTime? creation =
-        FirebaseAuth.instance.currentUser!.metadata.creationTime;
-    DateTime? lastlogin =
-        FirebaseAuth.instance.currentUser!.metadata.lastSignInTime;
+   Stream<User?> creation =
+        FirebaseAuth.instance.authStateChanges();
+    Stream<User?> lastlogin =
+        FirebaseAuth.instance.authStateChanges();
 
     if (creation == lastlogin) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
