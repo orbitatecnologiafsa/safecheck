@@ -21,10 +21,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: FlutterSplashScreen.gif(
           useImmersiveMode: false,
-          gifPath: 'assets/images/test2.gif',
+          gifPath: 'assets/images/splash.gif',
           backgroundColor: Colors.white,
-          gifWidth: 1000,
-          gifHeight: 1000,
+          gifWidth: 500,
+          gifHeight: 500,
           nextScreen: const AuthPage(),
           duration: const Duration(milliseconds: 3515),
         ),

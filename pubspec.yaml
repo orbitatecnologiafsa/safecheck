@@ -25,7 +25,7 @@ dev_dependencies:
   flutter_lints: ^1.0.4
 
 icons_launcher:
-  image_path: "assets/icons/icon.png"
+  image_path: "assets/icons/icon2.png"
   platforms:
     android:
       enable: true
