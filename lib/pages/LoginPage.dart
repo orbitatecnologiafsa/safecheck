@@ -46,14 +46,14 @@ class _LoginPage extends State<LoginPage> {
       isEmailVerified();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
-        emailError = 'Enter valid email ID';
+        emailError = 'Insira um email válido';
       }
       if (e.code == 'wrong-password') {
-        passError = 'Enter correct password';
+        passError = 'Insira a senha correta';
       }
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("You are not registed. Sign Up now")));
+            const SnackBar(content: Text("Você não está registrado. Realize o registro agora")));
       }
     }
     setState(() {});
@@ -74,7 +74,7 @@ class _LoginPage extends State<LoginPage> {
       verificationFailed: (FirebaseAuthException e) {
         if (e.code == 'invalid-phone-number') {
           const SnackBar(
-              content: Text('The provided phone number is not valid.'));
+              content: Text('O número digitado não é valido.'));
         }
       },
       codeSent: (String? verificationId, int? resendToken) async {
@@ -118,7 +118,7 @@ class _LoginPage extends State<LoginPage> {
       first_login();
     } else {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Email is not verified.')));
+          .showSnackBar(const SnackBar(content: Text('Email não verificadChequeo.  sua caixa de email')));
     }
   }
 

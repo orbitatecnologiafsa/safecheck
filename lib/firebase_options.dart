@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCXS8w8KjL2q3EkQCcq6nUiJjKXHrN5LFE',
-    appId: '1:100121203970:android:2be98febce5ab3e1e89e1b',
+    appId: '1:100121203970:android:7ff46616231bfc4be89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.firebasestorage.app',
@@ -59,24 +59,24 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAFClSbvp1GOqrQdndqYH0mYeYmeaGlRY8',
-    appId: '1:100121203970:ios:6193c81d05c1e2efe89e1b',
+    appId: '1:100121203970:ios:e90567c4ad93a942e89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.firebasestorage.app',
     androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
-    iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterTemplates',
+    iosClientId: '100121203970-vulq5ai1kr6h975453825mmh1hjpkvbb.apps.googleusercontent.com',
+    iosBundleId: 'com.safecheck',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyAFClSbvp1GOqrQdndqYH0mYeYmeaGlRY8',
-    appId: '1:100121203970:ios:6193c81d05c1e2efe89e1b',
+    appId: '1:100121203970:ios:e90567c4ad93a942e89e1b',
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.firebasestorage.app',
     androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
-    iosClientId: '100121203970-ji38dpjfkn9vuo3qr3ktbuuliphi0gs4.apps.googleusercontent.com',
-    iosBundleId: 'com.example.flutterTemplates',
+    iosClientId: '100121203970-vulq5ai1kr6h975453825mmh1hjpkvbb.apps.googleusercontent.com',
+    iosBundleId: 'com.safecheck',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(

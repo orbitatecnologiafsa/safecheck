@@ -1,4 +1,4 @@
-package com.example.safecheck
+package com.safecheck
 
 import io.flutter.embedding.android.FlutterActivity
 

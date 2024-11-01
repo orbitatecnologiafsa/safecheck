@@ -43,7 +43,7 @@ class _SignUpPage extends State<SignUpPage> {
         sendVerificationEmail();
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
             content: Text(
-                'Verification mail has been to registed Email ID. Verify your account and login again')));
+                'Verificação do email enviada para o endereço registrado. Verifique sua conta e logue novamente')));
 
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
