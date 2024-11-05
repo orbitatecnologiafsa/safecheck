@@ -13,16 +13,14 @@ return Container(
         activeColor: Colors.white,
         color: Color.fromARGB(255, 149, 149, 149),
         tabBackgroundColor: Color(0xFF9CCC65),
-        tabBorderRadius: 16,
+        tabBorderRadius: 20,
         haptic: true,
         tabs: [
           GButton(
           icon: Icons.home, 
-          text: 'Home',
           ),
           GButton(
           icon: Icons.person, 
-          text: 'Perfil',
           ),
         ],
   ),

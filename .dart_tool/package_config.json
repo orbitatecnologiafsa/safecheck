@@ -302,6 +302,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "rename_app",
+      "rootUri": "file:///home/emal0n/.pub-cache/hosted/pub.dev/rename_app-1.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///home/emal0n/Downloads/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -392,7 +398,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-11-01T01:05:07.811248Z",
+  "generated": "2024-11-05T19:34:13.252067Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///home/emal0n/Downloads/flutter",

@@ -19,6 +19,7 @@ dependencies:
   flutter_otp_text_field: ^1.2.0
   another_flutter_splash_screen: ^1.2.1
   change_app_package_name: ^1.4.0
+  rename_app: ^1.6.1
 
 dev_dependencies:
   flutter_test:
