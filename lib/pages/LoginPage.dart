@@ -130,7 +130,7 @@ class _LoginPage extends State<LoginPage> {
 
     if (creation == lastlogin) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return Main();
+        return const Main();
       }));
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {

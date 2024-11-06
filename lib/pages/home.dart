@@ -1,239 +1,175 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:SafeCheck/elements/navbar.dart';
+import 'package:SafeCheck/util/smart_device_box.dart';
 
-class Main extends StatelessWidget {
-    Main({super.key});
+class Main extends StatefulWidget {
+  const Main({super.key});
+
+  @override
+  State<Main> createState() => _Main();
+}
+
+class _Main extends State<Main> {
   
 final user = FirebaseAuth.instance.currentUser!;
 
+  List mySmartDevices = [
+    ["Inspeções", "assets/icons/inspecao.png"],
+    ["  Agenda", "assets/icons/agenda.png"],
+    ["Relatórios", "assets/icons/rel.png"],
+    ["Empresas e Funcionários", "assets/icons/em.png"],
+    ["Comunicados", "assets/icons/chat.png"],
+    ["Chat e Video", "assets/icons/chatevid.png"],
+  ];
+
+  // power button switched
+  void powerSwitchChanged(bool value, int index) {
+    setState(() {
+      mySmartDevices[index][2] = value;
+    });
+  }
   // sign user out method
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
 
+  void soon() {
+  }
+
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarBrightness: Brightness.light,
-      statusBarIconBrightness: Brightness.light,
-    ));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         bottomNavigationBar: const Navbar(),
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+        toolbarHeight: 100,
+        title: const Text('Home'),
+        titleTextStyle: const TextStyle( fontWeight: FontWeight.w900,
+        color: Colors.black,
+        fontSize: 30),
+        centerTitle: true,
         backgroundColor: Colors.white,
-        actions: [
-          IconButton(
-            onPressed: signUserOut,
-            icon: const Icon(Icons.logout),
+        leading: Builder(
+          builder: (context) => IconButton(icon: const Icon(Icons.menu),
+          color: const Color(0xFF9CCC65),
+            onPressed: (){
+              Scaffold.of(context).openDrawer();
+            }
           )
-        ],
-      ),
-        body: SafeArea(
-          
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(
-                        left: 20, right: 20, top: 30, bottom: 30),
-                    alignment: Alignment.topLeft,
-                    child: const Text(
-                      'Bem vindo, Orbita',
-                      style: TextStyle(fontWeight: FontWeight.w900, fontSize: 29),
-                    ),
-                  ),
-                  Container(
-                    height: 175,
-                    margin: const EdgeInsets.only(
-                        left: 20, right: 20, top: 10, bottom: 10),
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      color: Color(0xFF9CCC65),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20), 
-                      ),
-                    ),
-                    child: Stack(
-                      alignment: AlignmentDirectional.topStart,
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 50,
-                                  width: 50,
-                                  margin:
-                                      const EdgeInsets.only(left: 15, top: 20),
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(30),
-                                    ),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(30)),
-                                    child: Image.asset(
-                                      'assets/images/profile.png',
-                                      width: 110.0,
-                                      height: 110.0,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  margin:
-                                      const EdgeInsets.only(left: 10, top: 25),
-                                  child: Column(
-                                    children: [
-                                      const Text(
-                                        'Orbita Tecnologia',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Text(
-                                        'Software House',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          color: Colors.white.withOpacity(0.6),
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                items("", ""),
-                                items("", ""),
-                                items("", ""),
-                                items("", ""),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        itemsMenu(const Icon(Icons.attach_money), ""),
-                        itemsMenu(const Icon(Icons.wallet_travel_rounded),""),
-                        itemsMenu(const Icon(Icons.wallet_travel_rounded), ""),
-                        itemsMenu(const Icon(Icons.wallet_travel_rounded), ""),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    reverse: true,
-                    child: Column(
-                      children: [
-                      itemsMenuList(),
-                       
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
         ),
       ),
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                DrawerHeader(
+            child: Image.asset(
+            'assets/icons/banner.png')
+            ),
+
+            Padding(padding: const EdgeInsets.only(left: 5.0),
+            child: ListTile(
+            leading: IconButton(
+              icon: const Icon(Icons.person),
+              color: const Color(0xFF9CCC65),
+              onPressed: soon,
+            ),
+            title: const Text(
+                'PERFIL',
+              style: TextStyle(
+              fontWeight: FontWeight.w900,
+              color: Color(0xFF9CCC65)
+              ),
+            ),
+          ),
+        ),
+
+            Padding(padding: const EdgeInsets.only(left: 5.0),
+            child: ListTile(
+              leading: IconButton(
+                icon: const Icon(Icons.settings),
+                color: const Color(0xFF9CCC65),
+                onPressed: soon,
+              ),
+              title: const Text(
+                'CONFIGURAÇÕES',
+                style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF9CCC65)
+                ),
+              ),
+            ),
+          ),
+
+            Padding(padding: const EdgeInsets.only(left: 5.0),
+            child: ListTile(
+              leading: IconButton(
+                icon: const Icon(Icons.pattern),
+                color: const Color(0xFF9CCC65),
+                onPressed: soon,
+              ),
+              title: const Text(
+                'PARÂMETROS',
+                style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF9CCC65)
+                ),
+              ),
+            ),
+            ),
+          ],
+        ),
+         Padding(padding: const EdgeInsets.only(left: 5.0, bottom: 15),
+            child: ListTile(
+            leading: IconButton(
+                icon: const Icon(Icons.logout),
+                color: const Color(0xFF9CCC65),
+                onPressed: signUserOut,
+              ),
+              title: const Text(
+                'SAIR',
+                style: TextStyle(
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF9CCC65)
+                ),
+              ),
+            ),
+            ),
+          ],
+        )
+            ),
+        body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 10),
+            Expanded(
+              child: GridView.builder(
+                itemCount: 6,
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1 / 1.3,
+                ),
+                itemBuilder: (context, index) {
+                  return SmartDeviceBox(
+                    smartDeviceName: mySmartDevices[index][0],
+                    iconPath: mySmartDevices[index][1],
+                    onPressed: (value) => powerSwitchChanged(value, index),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
+      ),
+    ),
     );
   }
-}
-items([count, title]) {
-  return Container(
-    margin: const EdgeInsets.only(left: 30, top: 35),
-    child: Column(
-      children: [
-        Text(
-          count,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          title,
-          style: TextStyle(
-            color: Colors.white.withOpacity(0.6),
-            fontSize: 12,
-          ),
-        ),
-      ],
-    ),
-  );
-}
-itemsMenu([icon, title]) {
-  return Column(
-    children: [
-      Container(
-        height: 50,
-        width: 50,
-        alignment: Alignment.center,
-        margin: const EdgeInsets.only(left: 15, top: 20, right: 15),
-        decoration: const BoxDecoration(
-          color: Color(0xffe1e6ef),
-          borderRadius: BorderRadius.all(
-            Radius.circular(30), //                 <--- border radius here
-          ),
-        ),
-        child: icon,
-      ),
-      Container(
-        margin: const EdgeInsets.only(left: 15, top: 10, right: 15),
-        child: Text(
-          title,
-          style: TextStyle(
-            color: Colors.black.withOpacity(0.8),
-            fontSize: 12,
-          ),
-        ),
-      ),
-    ],
-  );
-}
-
-itemsMenuList() {
-  return Container(
-    width: double.infinity,
-    padding: const EdgeInsets.only(right: 15.0, left: 15.0, top: 5.0),
-    child: InkWell(
-      borderRadius: BorderRadius.circular(10.0),
-      child: ListTile(
-        leading: const Icon(Icons.access_alarm),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        tileColor: const Color(0xffe1e6ef),
-        title: const Text("sas"),
-        subtitle: const Text("SA"),
-        dense: true,
-      ),
-      onTap: () {
-        // ignore: avoid_print
-        print("Passou");
-      },
-    ),
-  );
 }
