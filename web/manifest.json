@@ -1,6 +1,6 @@
 {
-     "name": "Safe Check",
-     "short_name": "Safe Check",
+     "name": "SafeCheck",
+     "short_name": "SafeCheck",
      "start_url": ".",
      "display": "standalone",
      "background_color": "#0175C2",
