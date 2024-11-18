@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:SafeCheck/pages/auth_page.dart';
+import 'package:SafeCheck/pages/login/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
