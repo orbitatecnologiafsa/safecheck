@@ -332,10 +332,10 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-11-07T21:06:38.631805Z",
+  "generated": "2024-11-19T15:20:33.182346Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///home/emal0n/Downloads/flutter",
-  "flutterVersion": "3.24.4",
+  "flutterVersion": "3.24.5",
   "pubCache": "file:///home/emal0n/.pub-cache"
 }
