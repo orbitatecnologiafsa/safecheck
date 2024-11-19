@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.firebasestorage.app',
-    androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
+    androidClientId: '100121203970-jhqejsrhosdoa1fbkfo4pgp87rtcmgbv.apps.googleusercontent.com',
     iosClientId: '100121203970-vulq5ai1kr6h975453825mmh1hjpkvbb.apps.googleusercontent.com',
     iosBundleId: 'com.safecheck',
   );
@@ -74,7 +74,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '100121203970',
     projectId: 'safecheckauth',
     storageBucket: 'safecheckauth.firebasestorage.app',
-    androidClientId: '100121203970-lvpa5bicph8ajb8g7891f8svevqiqa8c.apps.googleusercontent.com',
+    androidClientId: '100121203970-jhqejsrhosdoa1fbkfo4pgp87rtcmgbv.apps.googleusercontent.com',
     iosClientId: '100121203970-vulq5ai1kr6h975453825mmh1hjpkvbb.apps.googleusercontent.com',
     iosBundleId: 'com.safecheck',
   );

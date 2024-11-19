@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
 class CadEmpresarial extends StatefulWidget {
@@ -26,13 +27,6 @@ class _CadEmpresarial extends State<CadEmpresarial> {
   var nomec = TextEditingController();
   var telefone = TextEditingController();
   var email = TextEditingController();
-  var id = TextEditingController();
-  var password = TextEditingController();
-
-  String rs = '';
-  String nf = '';
-  String cnpj = '';
-  String pass = '';
 
   String? validarCNPJ(String? value) {
     if (value == null || value.isEmpty) {
@@ -94,6 +88,35 @@ class _CadEmpresarial extends State<CadEmpresarial> {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('CEP inválido')));
     }
   }
+
+  Future<void> createCad() async {
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  try {
+    await firestore.collection('cadastros').add({
+      'razao_social': razaos.text,
+      'nome_fantasia': nomef.text,
+      'cnpj': cnpjj.text,
+      'cep': cep.text,
+      'rua': rua.text,
+      'bairro': bairro.text,
+      'cidade': cidade.text,
+      'estado': estado.text,
+      'numero': numero.text,
+      'setor_atuacao': setora.text,
+      'porte': porte.text,
+      'nome_contato': nomec.text,
+      'telefone': telefone.text,
+      'email': email.text,
+      'data_criação': FieldValue.serverTimestamp(),
+    });
+    
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cadastro realizado com sucesso')));
+    
+    _formKey.currentState?.reset();
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erro ao salvar cadastro: $e')));
+  }
+}
 
   String? validarCep(String? value) {
     if (value == null || value.isEmpty) {
@@ -175,7 +198,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   validator: validarCep,
                   onChanged: (value) {
                     if (value.length == 8) {
-                      buscarEnderecoPorCep(); // Chama a função para buscar o endereço
+                      buscarEnderecoPorCep();
                     }
                   },
                 ),
@@ -301,34 +324,33 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      // Realizar o cadastro
-                      // create_cad();
+                onPressed: () {
+                  if (_formKey.currentState?.validate() ?? false) {
+                  createCad();
                     } else {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Por favor, corrija os erros no formulário'),
-                      ));
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    minimumSize: const Size.fromHeight(45),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Realizar Cadastro",
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 25),
-              ],
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('Por favor, corrija os erros no formulário'),
+                ));
+               }
+              },
+              style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+              minimumSize: const Size.fromHeight(45),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
-          ),
+          child: const Center(
+            child: Text(
+          "Realizar Cadastro",
+          style: TextStyle(fontSize: 15, color: Colors.white),
         ),
       ),
-    );
-  }
+    ),
+          const SizedBox(height: 25),
+  ],
+),
+),
+),
+),
+);
+}
 }
