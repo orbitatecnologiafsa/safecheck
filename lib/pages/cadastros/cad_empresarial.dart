@@ -38,8 +38,8 @@ class _CadEmpresarial extends State<CadEmpresarial> {
     if (value == null || value.isEmpty) {
       return 'CNPJ é obrigatório.';
     }
-    if (value.length != 14) {
-      return 'CNPJ deve ter 14 caracteres.';
+    if (value.length != 18) {
+      return 'CNPJ deve ter 18 caracteres.';
     }
     return null;
   }
@@ -58,8 +58,8 @@ class _CadEmpresarial extends State<CadEmpresarial> {
     if (value == null || value.isEmpty) {
       return 'Telefone é obrigatório.';
     }
-    if (value.length != 14) {
-      return 'O Telefone deve ter 14 caracteres (formato: (XX) XXXXX-XXXX).';
+    if (value.length != 15) {
+      return 'O Telefone deve ter 15 caracteres.';
     }
     return null;
   }
