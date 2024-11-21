@@ -208,7 +208,7 @@ final user = FirebaseAuth.instance.currentUser!;
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Agenda',
+                            'Agendamento de \nInspeção',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           height: 1,
