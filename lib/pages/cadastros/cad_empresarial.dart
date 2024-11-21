@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';  // Importa a dependência para mascaras
 
 class CadEmpresarial extends StatefulWidget {
   const CadEmpresarial({super.key});
@@ -28,7 +29,10 @@ class _CadEmpresarial extends State<CadEmpresarial> {
   var telefone = TextEditingController();
   var email = TextEditingController();
 
-  String? porteSelecionado; 
+  String? porteSelecionado;
+
+  final maskCNPJ = MaskTextInputFormatter(mask: '##.###.###/####-##');
+  final maskTelefone = MaskTextInputFormatter(mask: '(##) #####-####');
 
   String? validarCNPJ(String? value) {
     if (value == null || value.isEmpty) {
@@ -200,7 +204,8 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                     labelText: 'CNPJ',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
-                  maxLength: 14,
+                  inputFormatters: [maskCNPJ],
+                  maxLength: 18,
                   validator: validarCNPJ,
                 ),
                 const SizedBox(height: 5),
@@ -330,7 +335,8 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                     labelText: 'Telefone',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
-                  maxLength: 14,
+                  inputFormatters: [maskTelefone],
+                  maxLength: 15,
                   validator: validarTelefone,
                 ),
                 const SizedBox(height: 5),
@@ -357,28 +363,28 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   ),
                 ),
                 ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                  createCad();
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      createCad();
                     } else {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                content: Text('Por favor, corrija os erros no formulário'),
-                ));
-               }
-              },
-              style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.green,
-              minimumSize: const Size.fromHeight(45),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            ),
-          child: const Center(
-            child: Text(
-          "Realizar Cadastro",
-          style: TextStyle(fontSize: 15, color: Colors.white),
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Por favor, corrija os erros no formulário'),
+                      ));
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    minimumSize: const Size.fromHeight(45),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Realizar Cadastro",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    ),
+                  ),
                 ),
-      ),
-    ),
-          const SizedBox(height: 25),
+                const SizedBox(height: 25),
               ],
             ),
           ),
