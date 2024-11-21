@@ -23,10 +23,12 @@ class _CadEmpresarial extends State<CadEmpresarial> {
   var estado = TextEditingController();
   var cep = TextEditingController();
   var setora = TextEditingController();
-  var porte = TextEditingController();
+  var porte = TextEditingController(); 
   var nomec = TextEditingController();
   var telefone = TextEditingController();
   var email = TextEditingController();
+
+  String? porteSelecionado; 
 
   String? validarCNPJ(String? value) {
     if (value == null || value.isEmpty) {
@@ -89,34 +91,49 @@ class _CadEmpresarial extends State<CadEmpresarial> {
     }
   }
 
-  Future<void> createCad() async {
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
-  try {
-    await firestore.collection('cadastros').add({
-      'razao_social': razaos.text,
-      'nome_fantasia': nomef.text,
-      'cnpj': cnpjj.text,
-      'cep': cep.text,
-      'rua': rua.text,
-      'bairro': bairro.text,
-      'cidade': cidade.text,
-      'estado': estado.text,
-      'numero': numero.text,
-      'setor_atuacao': setora.text,
-      'porte': porte.text,
-      'nome_contato': nomec.text,
-      'telefone': telefone.text,
-      'email': email.text,
-      'data_criação': FieldValue.serverTimestamp(),
-    });
+  Future<bool> verificarCnpjDuplicado(String cnpj) async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final cnpjQuery = await firestore
+        .collection('cadastro_empresarial')
+        .where('cnpj', isEqualTo: cnpj)
+        .get();
     
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cadastro realizado com sucesso')));
-    
-    _formKey.currentState?.reset();
-  } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erro ao salvar cadastro: $e')));
+    return cnpjQuery.docs.isNotEmpty; 
   }
-}
+
+  Future<void> createCad() async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    bool cnpjExistente = await verificarCnpjDuplicado(cnpjj.text);
+    if (cnpjExistente) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Este CNPJ já está cadastrado.')));
+      return; 
+    }
+    try {
+      await firestore.collection('cadastro_empresarial').add({
+        'razao_social': razaos.text,
+        'nome_fantasia': nomef.text,
+        'cnpj': cnpjj.text,
+        'cep': cep.text,
+        'rua': rua.text,
+        'bairro': bairro.text,
+        'cidade': cidade.text,
+        'estado': estado.text,
+        'numero': numero.text,
+        'setor_atuacao': setora.text,
+        'porte': porteSelecionado,
+        'nome_contato': nomec.text,
+        'telefone': telefone.text,
+        'email': email.text,
+        'data_criação': FieldValue.serverTimestamp(),
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Cadastro realizado com sucesso')));
+      _formKey.currentState?.reset();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Erro ao salvar cadastro: $e')));
+    }
+  }
 
   String? validarCep(String? value) {
     if (value == null || value.isEmpty) {
@@ -207,7 +224,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   controller: rua,
                   readOnly: true,
                   decoration: InputDecoration(
-                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -216,7 +233,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   keyboardType: TextInputType.none,
                   readOnly: true,
                   decoration: InputDecoration(
-                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -225,7 +242,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   keyboardType: TextInputType.none,
                   readOnly: true,
                   decoration: InputDecoration(
-                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -234,7 +251,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   keyboardType: TextInputType.none,
                   readOnly: true,
                   decoration: InputDecoration(
-                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -246,6 +263,12 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                   maxLength: 4,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Número obrigatório.';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 5),
                 TextFormField(
@@ -256,21 +279,31 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Campo obrigatório.';
+                      return 'Setor de atuação obrigatório.';
                     }
                     return null;
                   },
                 ),
                 const SizedBox(height: 5),
-                TextFormField(
-                  controller: porte,
+                DropdownButtonFormField<String>(
+                  value: porteSelecionado,
                   decoration: InputDecoration(
-                    labelText: 'Porte da Empresa',
+                    labelText: 'Porte',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
+                  items: const [
+                    DropdownMenuItem(value: 'Pequeno', child: Text('Pequeno')),
+                    DropdownMenuItem(value: 'Médio', child: Text('Médio')),
+                    DropdownMenuItem(value: 'Grande', child: Text('Grande')),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      porteSelecionado = value;
+                    });
+                  },
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Campo obrigatório.';
+                      return 'Porte é obrigatório.';
                     }
                     return null;
                   },
@@ -279,12 +312,12 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                 TextFormField(
                   controller: nomec,
                   decoration: InputDecoration(
-                    labelText: 'Nome para Contato',
+                    labelText: 'Nome Contato',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Nome obrigatório.';
+                      return 'Nome de contato obrigatório.';
                     }
                     return null;
                   },
@@ -292,7 +325,7 @@ class _CadEmpresarial extends State<CadEmpresarial> {
                 const SizedBox(height: 5),
                 TextFormField(
                   controller: telefone,
-                  keyboardType: TextInputType.number,
+                  keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
                     labelText: 'Telefone',
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
@@ -342,15 +375,15 @@ class _CadEmpresarial extends State<CadEmpresarial> {
             child: Text(
           "Realizar Cadastro",
           style: TextStyle(fontSize: 15, color: Colors.white),
-        ),
+                ),
       ),
     ),
           const SizedBox(height: 25),
-  ],
-),
-),
-),
-),
-);
-}
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
