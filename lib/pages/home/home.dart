@@ -14,7 +14,6 @@ class _Main extends State<Main> {
   
 final user = FirebaseAuth.instance.currentUser!;
 
-  // sign user out method
   void signUserOut() {
     FirebaseAuth.instance.signOut();
   }
@@ -162,7 +161,6 @@ final user = FirebaseAuth.instance.currentUser!;
                           Text(
                             'Inspeções',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -209,9 +207,8 @@ final user = FirebaseAuth.instance.currentUser!;
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Agendamento de \nInspeção',
+                            'Agendamento',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -260,7 +257,6 @@ final user = FirebaseAuth.instance.currentUser!;
                           Text(
                             'Relatórios',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -309,7 +305,6 @@ final user = FirebaseAuth.instance.currentUser!;
                           Text(
                             'Cadastros',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -358,7 +353,6 @@ final user = FirebaseAuth.instance.currentUser!;
                           Text(
                             'Comunicados',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -407,7 +401,6 @@ final user = FirebaseAuth.instance.currentUser!;
                           Text(
                             'Chat e Video',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),

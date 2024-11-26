@@ -62,7 +62,6 @@ class _Cads extends State<Cads> {
                           Text(
                             'Empresarial',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -111,7 +110,6 @@ class _Cads extends State<Cads> {
                           Text(
                             'Funcionários',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -160,7 +158,6 @@ class _Cads extends State<Cads> {
                           Text(
                             'Setores',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
@@ -209,7 +206,6 @@ class _Cads extends State<Cads> {
                           Text(
                             'Cargos',
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                           ),
