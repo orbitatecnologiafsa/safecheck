@@ -1,0 +1,46 @@
+name: SafeCheck-ipa-build
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  build-ios:
+    name: SafeCheck-ipa-build
+    runs-on: macos-latest 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 
+      
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2 
+        with:
+          channel: 'stable' 
+          architecture: x64 
+
+      - name: Install dependencies
+        run: flutter pub get 
+
+      - name: Install CocoaPods dependencies
+        run: pod repo update
+        working-directory: ios 
+
+      - name: Build iOS app
+        run: flutter build ios --release --no-codesign 
+
+      - name: Prepare Payload folder
+        run: |
+          mkdir -p build/ios/iphoneos/Payload
+          mv build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/
+
+      - name: Create IPA file
+        run: zip -qq -r -9 SafeCheck.ipa Payload 
+        working-directory: build/ios/iphoneos
+
+      - name: Upload IPA to GitHub Release
+        uses: svenstaro/upload-release-action@v2 
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }} 
+          file: build/ios/iphoneos/SafeCheck.ipa 
+          tag: v1.0 
+          overwrite: true 
+          body: "Nova Build" 
