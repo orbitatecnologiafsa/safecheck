@@ -1,3 +1,4 @@
+import 'package:SafeCheck/pages/agendamento_insp/agen_insp.dart';
 import 'package:SafeCheck/pages/home/menus/cadselec.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -177,7 +178,7 @@ final user = FirebaseAuth.instance.currentUser!;
           ),
          InkWell(
             onTap: (){
-          //    Navigator.push(context, MaterialPageRoute(builder: (context)=>const Soon()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>const AgendamentoInsp()));
             },
             child: Container(
             decoration: const BoxDecoration(
